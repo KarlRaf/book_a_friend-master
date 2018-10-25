@@ -1,0 +1,66 @@
+<div class="container data-file">
+  <!-- basic info -->
+  <div class="show-user-img">
+    <% if @user.photo.file.nil?%>
+      <%= image_tag "avatar-baf.png", height: 120, width: 120 %>
+    <% else %>
+      <%= cl_image_tag @user.photo, height: 120, width: 120, crop: :fill, class: "img-circle" %>
+    <% end %>
+  </div>
+  <div class="user-profile">
+    <div class="row row-user">
+      <div id="show-username">
+        <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      </div>
+      <div id="user-data">
+        <div>
+          <% if @user.rating.nil? %>
+            <i class="far fa-star"></i>
+          <% else %>
+            <% @user.rating.times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <% if @user == current_user %>
+          <div id="edit-bio">
+            <%= link_to "Edit your bio", edit_user_path(@user) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- description -->
+    <div class="row" id="user-description">
+      <h2>About me</h2>
+      <%= @user.description %>
+    </div>
+
+    <!-- activities involved -->
+    <div class="row">
+      <h2>Next events for <%= @user.first_name %></h2>
+        <% @bookings.each do |booking| %>
+          <%= render 'card', booking: booking %>
+        <% end %>
+    </div>
+
+    <!-- my moments -->
+    <div class="row">
+      <h2>Next moments organized by <%= @user.first_name %></h2>
+      <% @user.moments.each do |moment| %>
+        <%= link_to moment_path(moment) do %>
+          <div class="col-xs-12 col-sd-6 col-md-4 my-moments-card">
+            <div class="moment-content" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "#{moment.category.downcase}.jpg"%>); background-size: cover; border-radius: 4px; '>
+              <div id="moment-activity">
+                <%= moment.activity %>
+              </div>
+              <div id="moment-location">
+                <i class="fas fa-map-marker"></i> <%= moment.location %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+
+  <h2>All the bookings for this moment</h2>
+  <ul class="list-unstyled">
+    <% @bookings.each do |booking| %>
+     <li> <%= booking.user.username %> </li>
+    <% end %>
+  </ul>
+  <%= link_to 'Back to Moments List', moments_path, class: 'btn btn-info' %>
+</div>

@@ -1,0 +1,129 @@
+<div class="container moment-container">
+  <div class="moment-main-info">
+
+    <!-- left column images + join button -->
+    <div id="moment-category">
+      <div id="img-img">
+        <%= image_tag "#{@moment.category.downcase}.jpg" %>
+        <div id="moment-user-img">
+          <%= link_to user_path(@moment.user) do %>
+            <% if @moment.user.photo.file.nil?%>
+              <%= image_tag "avatar-baf.png", height: 80, width: 80, class: "img-circle" %>
+            <% else %>
+              <%= cl_image_tag @moment.user.photo, height: 80, width: 80, crop: :fill, class: "img-circle" %>
+            <% end %>
+          <% end %>
+        </div>
+        <div id="moment-user-participants">
+          <h3>Participants</h3>
+          <% @bookings.each do |booking| %>
+            <%= link_to user_path(booking.user) do %>
+              <div class="one-booking"><%= cl_image_tag booking.user.photo, height: 60, width: 60, crop: :fill, class: "img-circle" %></div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <!-- Button trigger modal -->
+      <% if @moment.user != current_user %>
+        <button type="button" id="img-join" data-toggle="modal" data-target="#joinModal">
+          Join this moment
+        </button>
+      <% end %>
+    </div>
+
+    <!-- right column = basic infos -->
+    <div id="moment-content">
+      <div id="moment-user-content">
+        <div id="moment-activity">
+          <h1><%= @moment.activity %></h1>
+        </div>
+        <% countdown = (@moment.start_time.to_date - Date.today).to_i %>
+        <% if countdown < 0 %>
+          <div id="countdown-expired">
+            <p id="expired">Too late, sorry!</p>
+          </div>
+        <% elsif countdown == 0 %>
+          <div id="countdown">
+            <p>That's today!</p>
+          </div>
+        <% elsif countdown == 1 %>
+          <div id="countdown">
+            <p>Starts in <%= countdown %> day</p>
+          </div>
+        <% elsif countdown > 3 %>
+          <div id="countdown-cool">
+            <p>Starts in <%= countdown %> days</p>
+          </div>
+        <% else %>
+          <div id="countdown">
+            <p>Starts in <%= countdown %> days</p>
+          </div>
+        <% end %>
+        <div class="nav-buttons-show">
+          <% if @moment.user == current_user %>
+            <%= link_to 'Edit', edit_moment_path %>
+            <%= link_to 'Delete', moment_path, method: :delete %>
+          <% end %>
+        </div>
+        <div class="moment-user-insides" id="moment-date">
+          <div id="moment-start">
+            <%= @formatted_start %> - <%= @formatted_end %>
+          </div>
+        </div>
+        <div class="moment-user-insides" id="moment-description">
+          <%= @moment.description %>
+        </div>
+        <div id="location-div">
+          <div class="moment-user-insides" id="moment-location">
+            <a href="#map-contain"><i class="fas fa-map-marker"></i> <%= @moment.location %></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- full width end of page -->
+  <div class="full-width-end">
+    <div class="moment-messages">
+      <h4>Check who's in</h4>
+      <% @moment.bookings.each do |booking| %>
+        <div class="one-message">
+          <span><%= cl_image_tag booking.user.photo, height: 60, width: 60, crop: :fill, class: "img-circle" %></span><span class="booking-description"><%= booking.description %></span> - <span class="booking-user"><%= booking.user.first_name %></span>
+        </div>
+      <% end %>
+    </div>
+    <div id="map-contain">
+      <h4>Where is it?</h4>
+      <div id="map" style="width: 100vw; height: 520px;" data-markers="<%= @markers.to_json %>"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- join modal -->
+
+<div class="modal fade" id="joinModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Join this moment</h4>
+      </div>
+      <div class="modal-body">
+        <% if @moment.user != current_user %>
+          <div class="form-container">
+            <div class="form-content">
+              <%= simple_form_for [@moment, @booking] do |f| %>
+                <%= f.input :description, label: "Say something to #{@moment.user.first_name}" %>
+                <%= f.submit "Join", class: "btn btn-success" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+

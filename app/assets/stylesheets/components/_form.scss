@@ -1,0 +1,61 @@
+.form-container {
+  margin-top: 30px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-item: center;
+  background: white;
+  padding: 25px 25px;
+  border: 1px solid rgba(30, 30, 30, 0.3)
+}
+
+.form-content {
+  width: 40vw;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.form-control {
+  height: 40px!important;
+  width: 100%!important;
+  margin: 10px auto!important;
+}
+
+.form-layout-container {
+  display: flex;
+  justify-content: center;
+}
+
+.group-times {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.photo-background {
+  width: 100%;
+  height: calc(100vh - 70px);
+  background-size: cover;
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1474314881477-04c4aac40a0e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e0994a7bf1f9d207153c91eafa06251c&auto=format&fit=crop&w=1350&q=80');
+}
+
+.form-container-new {
+  padding-top: 30px;
+  opacity: 0.9;
+}
+
+.form-btn {
+  padding-top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-btn .btn-primary {
+  margin-right: 5px;
+}
+.form-btn .btn-info {
+  margin-left: 5px;
+}

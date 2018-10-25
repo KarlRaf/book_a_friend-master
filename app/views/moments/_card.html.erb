@@ -1,0 +1,26 @@
+<%= link_to moment_path(moment) do %>
+  <div class="col-xs-12 col-sm-6 col-md-4">
+     <div class="card grow" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "#{moment.category.downcase}.jpg"%>); background-size: cover; '>
+    <div class="card-content">
+      <div class="card-category">
+        <%= moment.category %> <span>(<%= moment.level %>)</span>
+    </div>
+      <div class="card-content">
+        <div class="card-category">
+          <%= moment.category %> <span>(<%= moment.level %>)</span>
+        </div>
+        <div class="card-description">
+          <ul class="list-unstyled">
+            <li><%= truncate(moment.description, length: 35) %></li>
+            <li>Location: <%= moment.location %></li>
+          </ul>
+        </div>
+        <div class="card-avatar"><%= cl_image_tag(moment.user.photo, :width => 60, :height => 60, crop: 'fill', class: 'img-circle') %></div>
+       </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
