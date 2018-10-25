@@ -3,7 +3,8 @@
     <% if @moments.count == 0 %>
       <h3>no results</h3>
     <% else %>
-    <h1>Discover all moments (<%= @moments.count %>)</h1>
+    <h1>Discover all moments available (<%= @moments.count %>)</h1>
+    <h3 style="margin:0">You want something more specific? Use our fancy matching algorithm</h3>
       <div class="card-container">
         <div class="row">
           <% @moments.each do |moment| %>

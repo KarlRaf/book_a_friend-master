@@ -32,7 +32,7 @@ moment5 = Moment.create!(category: 'Travel', activity: 'Trip to Vegeta !', user:
 
 moment7 = Moment.create!(category: 'Sport', activity: 'Fitness trainning', user: user5, description: " Anyone interested with a fitness trainning in DC10 ", location: "16, villa gaudelet, Paris", level: 'Average', start_time: '03.11.2018 10:00', end_time: '03.11.2018 12:00')
 
-moment10 = Moment.create!(category: 'Games', activity: 'Fortnite Battle', user: user7, description: " Fortnite tournament at home with mamen Rico join us bro !", location: "Av. das Américas, 7607 - Barra da Tijuca, Rio de Janeiro - RJ, 22793-081, Brésil", level: 'Easy', start_time: '10.11.2018 18:00', end_time: '10.11.2018 20:00')
+moment10 = Moment.create!(category: 'Administration', activity: 'URSAFF', user: user7, description: "Plan to burn URSAFF offices", location: "Av. das Américas, 7607 - Barra da Tijuca, Rio de Janeiro - RJ, 22793-081, Brésil", level: 'Easy', start_time: '10.11.2018 18:00', end_time: '10.11.2018 20:00')
 
 moment8 = Moment.create!(category: 'Drink', activity: 'Wanna try this place', user: user5, description: " Search a german friend to make me discover Berghain by night.. ", location: "Am Wriezener Bahnhof, 10243 Berlin, Allemagne", level: 'Hell', start_time: '09.09.2018 20:00', end_time: '10.09.2018 02:00')
 

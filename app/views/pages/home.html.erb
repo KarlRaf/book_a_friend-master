@@ -15,6 +15,9 @@
         <%= button_tag "Search" , class: "btn-search"%>
         <% end %>
       </div>
+      <% if user_signed_in? %>
+        <%=  link_to 'match', match_path, class: "btn-search" %>
+      <% end %>
     </div>
   </div>
 </div>

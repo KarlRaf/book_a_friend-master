@@ -1,0 +1,73 @@
+
+<div class="container data-file">
+  <!-- basic info -->
+  <div class="show-user-img">
+    <% if @user.photo.file.nil?%>
+      <%= image_tag "avatar-baf.png", height: 120, width: 120 %>
+    <% else %>
+      <%= cl_image_tag @user.photo, height: 120, width: 120, crop: :fill, class: "img-circle" %>
+    <% end %>
+  </div>
+  <div class="user-profile">
+    <div class="row row-user">
+      <div id="show-username">
+        <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      </div>
+      <div id="user-data">
+        <div>
+          <% if @user.rating.nil? %>
+            <i class="far fa-star"></i>
+          <% else %>
+            <% @user.rating.times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <% if @user == current_user %>
+          <div id="edit-bio">
+            <%= link_to "Edit your bio", edit_user_path(@user) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- description -->
+    <div class="row" id="user-description">
+      <h2>About me</h2>
+      <%= @user.description %>
+    </div>
+  </div>
+
+  <div class="show-user-img">
+    <% if @matching_user[0].photo.file.nil?%>
+      <%= image_tag "avatar-baf.png", height: 120, width: 120 %>
+    <% else %>
+      <%= cl_image_tag @matching_user[0].photo, height: 120, width: 120, crop: :fill, class: "img-circle" %>
+    <% end %>
+  </div>
+  <div class="user-profile">
+    <div class="row row-user">
+      <div id="show-username">
+        <h1><%= @matching_user[0].first_name %> <%= @matching_user[0].last_name %></h1>
+      </div>
+      <div id="user-data">
+        <div>
+          <% if @matching_user[0].rating.nil? %>
+            <i class="far fa-star"></i>
+          <% else %>
+            <% @matching_user[0].rating.times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- description -->
+    <div class="row" id="user-description">
+      <h2>About me</h2>
+      <%= @matching_user[0].description %>
+    </div>
+  </div>
+
+</div>
