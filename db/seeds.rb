@@ -42,7 +42,6 @@ moment6 = Moment.create!(category: 'Exhibition', activity: 'Visit cougar museum'
 
 moment11 = Moment.create!(category: 'Travel', activity: 'Travel to Tokyo', user: user5, description: " I'd love to discover this country  ", location: "2 Chome-12-１０ Kabukichō, Shinjuku-ku, Tokyo-to 160-0021, Japon", level: 'Beginner', start_time: '01.01.2019 11:00', end_time: '05.01.2019 19:00')
 
-p Moment.all
 puts "je cree des bookings"
 
 booking1 = Booking.create!(user_id: user1.id,  moment_id: moment3.id,  description: "lorem ipsum",)
