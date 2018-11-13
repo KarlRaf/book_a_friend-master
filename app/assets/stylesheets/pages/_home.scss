@@ -1,0 +1,440 @@
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-family-secondary {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Logo */
+.logo img {
+  width: 100%;
+}
+.logo img.logo-img {
+  max-width: 225px;
+}
+.logo img.logo-icon {
+  max-width: 40px;
+}
+
+/* Navbar */
+.header .navbar-nav .nav-link:not(.btn) {
+  padding-right: 0!important;
+  padding-left: 0!important;
+  margin-right: .5rem;
+  margin-left: .5rem;
+}
+.dropdown-menu {
+  border-width: 2px;
+  border-style: solid;
+}
+.dropdown-menu.bg-secondary .dropdown-item {
+  color: #ffffff;
+}
+.dropdown-menu.bg-secondary .dropdown-item:hover {
+  color: #124562;
+  background: #ffffff;
+}
+
+/* Pricing */
+.pricing-wrap.active {
+  background-image: linear-gradient(-225deg, #fcbf23 0%, #f6e12f 48%, #fcbf23 100%);
+}
+.price__amount {
+  font-size: 400%;
+  line-height: 1.25;
+}
+.price__currency {
+    line-height: .8;
+}
+
+/* Media Query */
+@media screen and (min-height: 992px) {
+  /* Hero */
+  .hero {
+    height: 100%;
+    max-height: 600px;
+  }
+  .hero-inner > .row {
+    height: 100%;
+  }
+}
+
+
+/*
+
+Default CSS
+Version: 3.0
+Author: kantbtrue
+Author URI: https://twitter.com/kantbtrue
+
+*/
+
+html,
+body {
+  height: 100%;
+}
+.equal-height > div {
+  display: flex;
+}
+.bg-dark,
+.bg-dark a,
+.bg-dark a:hover,
+.bg-dark a:focus,
+.bg-dark .mobile-menu {
+  color: #ffffff;
+}
+.bg-transparent {
+  background: transparent;
+}
+
+/* Space */
+.sm-space {
+  padding: 7.5px;
+}
+.md-space {
+  padding: 15px;
+}
+.lg-space {
+  padding: 25px;
+}
+.xl-space {
+  padding: 50px;
+}
+
+/* Divider */
+.divider {
+  border-width: 2px;
+}
+.divider__solid {
+  border-style: solid;
+}
+
+/* Box Shadow */
+.box {
+    background: #fff;
+    position: relative;
+    width: 100%;
+    padding: 2rem;
+    margin: 1rem 0;
+    border-radius: 12px;
+  -webkit-transition: box-shadow 0.2s ease;
+  -o-transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
+}
+.box-shadow {
+    box-shadow: 0 12px 24px 8px rgba(36,37,38,0.08);
+}
+.box-shadow__hover:hover {
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.1);
+}
+
+/* Section */
+.section {
+  padding: 80px 0;
+}
+.section-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.section-overlay {
+  position: relative;
+}
+.section-overlay::before {
+  content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+}
+
+
+/*
+
+Button CSS
+Version: 2.0
+Author: kantbtrue
+Author URI: https://twitter.com/kantbtrue
+
+*/
+
+.btn-full {
+  width: 100%;
+}
+
+/* Rounded */
+.btn-round,
+.btn-lg.btn-round {
+  border-radius: 50px;
+}
+.btn-sm.btn-round {
+  border-radius: 25px;
+}
+
+/* Shadow */
+.btn-shadow {
+    position: relative;
+    outline: none;
+    border: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 3;
+}
+.btn-shadow::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -10%;
+  left: 5%;
+  height: 110%;
+  width: 90%;
+  opacity: 0.499;
+
+  /* Inheriting our border radius */
+  border-radius: inherit;
+
+  /* Declaring our shadow color inherit from the parent (button) */
+  background: inherit;
+
+  /* Blurring the element for shadow effect */
+  -webkit-filter: blur(6px);
+  -moz-filter: blur(6px);
+  -o-filter: blur(6px);
+  -ms-filter: blur(6px);
+  filter: blur(6px);
+
+  /* Transition */
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+.btn-shadow:hover::before {
+  /* Changing blur effect */
+  -webkit-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  filter: blur(4px);
+
+  /* And change the style properties */
+  width: 100%;
+  bottom: -5%;
+  left: 0;
+}
+.btn-shadow:hover:active::before,
+.btn-shadow:hover:focus::before {
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+}
+
+/* Edge does not support blur effect, so we can just delete the shadow */
+@supports (-ms-ime-align: auto) {
+  .btn-shadow::before, .btn-shadow:hover::before, .btn-shadow:active::before {
+    display: none;
+  }
+}
+
+/* And IE does not support CSS variables and blur effect, so.. */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* Deleting the shadow */
+  .btn-shadow::before, .btn-shadow:hover::before, .btn-shadow:active::before {
+    display: none;
+  }
+}
+
+.btn-lift-up:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Line */
+.a-line {
+  position: relative;
+  border-width: 0;
+}
+.a-line::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 0;
+  border-bottom: 2px solid transparent;
+  border-bottom-color: inherit;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.nav-link.a-line::before,
+.btn.a-line::before {
+  bottom: .5rem;
+}
+.a-line:hover::before {
+  border-bottom-color: inherit;
+}
+.a-line-animate-1::before {
+  width: 0;
+  opacity: 0;
+}
+.a-line-animate-1:hover::before {
+  width: 100%;
+  opacity: 1;
+}
+.a-line-animate-2::before {
+  transform: scaleX(0);
+  opacity: 0;
+}
+.a-line-animate-2:hover::before {
+  transform: scaleX(1);
+  opacity: 1;
+}
+@media screen and (max-width: 991px) {
+  .nav-link.a-line-animate-1::before,
+  .nav-link.a-line-animate-2::before {
+    display: none;
+  }
+}
+
+/*
+
+Font CSS
+Version: 1.1
+Author: kantbtrue
+Author URI: https://github.com/kantbtrue/percentage-font-size-css
+
+*/
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html {
+  font-family: sans-serif;
+}
+body {
+    text-rendering: optimizeLegibility;
+    line-height: 1.7;
+    font-size: 19px !important,
+}
+.xxxl-font-size {
+  font-size: 300%;
+}
+.xxl-font-size {
+  font-size: 235%;
+}
+h1,
+.xl-font-size {
+  font-size: 220%;
+}
+h2,
+.lg-font-size {
+  font-size: 180%;
+}
+h3,
+.md-font-size {
+  font-size: 150%;
+}
+h4,
+.base-plus-font-size {
+  font-size: 112.5%;
+}
+.base-font-size {
+  font-size: 100%;
+}
+h5,
+.sm-font-size {
+  font-size: 87.5%;
+}
+h6,
+.xs-font-size {
+  font-size: 70%;
+}
+.font-weight__100 {
+  font-weight: 100;
+}
+.font-weight__300 {
+  font-weight: 300;
+}
+.font-weight__400 {
+  font-weight: 400;
+}
+.font-weight__500 {
+  font-weight: 500;
+}
+.font-weight__600 {
+  font-weight: 600;
+}
+.font-weight__700 {
+  font-weight: 700;
+}
+.font-weight__900 {
+  font-weight: 900;
+  letter-spacing: 1.25px;
+}
+
+/* Media Query */
+@media screen and (max-width: 991px) {
+  .xxxl-font-size {
+    font-size: 255%;
+  }
+  .xxl-font-size {
+    font-size: 225%;
+  }
+  .xl-font-size {
+    font-size: 180%;
+  }
+  .lg-font-size {
+    font-size: 160%;
+  }
+  .md-font-size {
+    font-size: 150%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .xxxl-font-size {
+    font-size: 225%;
+  }
+  .xxl-font-size {
+    font-size: 200%;
+  }
+  .xl-font-size {
+    font-size: 180%;
+  }
+  .base-plus-font-size {
+    font-size: 105%;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .xxxl-font-size {
+    font-size: 200%;
+  }
+  .xxl-font-size {
+    font-size: 180%;
+  }
+  .xl-font-size {
+    font-size: 160%;
+  }
+  .lg-font-size {
+    font-size: 150%;
+  }
+  .md-font-size {
+    font-size: 125%;
+  }
+}

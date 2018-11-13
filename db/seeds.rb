@@ -6,19 +6,19 @@ User.destroy_all
 
 
 puts "je cree des user"
-user1 = User.create!(username: "alberror", first_name: "Antoine", last_name: "Duvauchelle", email: "alberror@gmail.com", password: "mdpmdp", description: "Je suis super content d'être là, j'ai envie de me faire plein d'amis et de participer à des milliers d'activités parce que mes amis actuels sont des cons.", remote_photo_url: "https://res.cloudinary.com/dae1kvpyn/image/upload/v1534943774/yiqzxkbceyioxzdaazoq.jpg", rating: 5)
+user1 = User.create!(username: "Cindy", first_name: "Cindy", last_name: "Duvauch", email: "alberror@gmail.com", password: "mdpmdp", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, pariatur. Beatae doloribus, eius distinctio nobis totam expedita at provident voluptas animi! Dicta repellat dolor eos quos, atque culpa iure adipisci.", remote_photo_url: "https://res.cloudinary.com/drq2pi5ow/image/upload/v1541952028/24.jpg", rating: 5)
 
-user2 = User.create!(username: "curly", first_name: "Intersnack", last_name: "french", email: "curly@gmail.com", password: "mdpmdp", description: "I am a salty delicious person who loves to meet new people. I also love peanuts. ", remote_photo_url:"https://res.cloudinary.com/dae1kvpyn/image/upload/v1535107313/curly.jpg", rating: 4)
+user2 = User.create!(username: "Sarah", first_name: "Sarah", last_name: "Nod", email: "curly@gmail.com", password: "mdpmdp", description: "Lorem", remote_photo_url:"https://res.cloudinary.com/drq2pi5ow/image/upload/v1541952045/3.jpg", rating: 4)
 
-user3 = User.create!(username: "harveywein", first_name: "Harvey", last_name: "Weinstein", email: "harvey@gmail.com", password: "mdpmdp", description: " Hello there ! I am a movie producer and during my free time i like to party hard !", remote_photo_url: "https://res.cloudinary.com/dae1kvpyn/image/upload/v1535107313/harvey.jpg", rating: 1)
+user3 = User.create!(username: "Lily", first_name: "Lily", last_name: "Boo", email: "harvey@gmail.com", password: "mdpmdp", description: " Lorem", remote_photo_url: "https://res.cloudinary.com/drq2pi5ow/image/upload/v1541952013/45.jpg", rating: 1)
 
-user4 = User.create!(username: "songoku", first_name: "Son", last_name: "Goku", email: "songoku@gmail.com", password: "mdpmdp", description: "I am a Saiyan born on vegeta planet. I like martial arts, hairdressing and i have a secret weapon.. Here to meet human people ! Kaméhaméha ! ", remote_photo_url: "https://res.cloudinary.com/dae1kvpyn/image/upload/v1535107313/sangoku.jpg", rating: 5)
+user4 = User.create!(username: "Anne", first_name: "Anne", last_name: "Miller", email: "songoku@gmail.com", password: "mdpmdp", description: "Lorem", remote_photo_url: "https://res.cloudinary.com/drq2pi5ow/image/upload/v1541952003/28.jpg", rating: 5)
 
-user5 = User.create!(username: "brigmac", first_name: "Brigitte", last_name: "Macron", email: "brigitte@gmail.com", password: "mdpmdp", description: " Hey ! I'm a french teacher and i'm here to meet young people to have a drink or others ", remote_photo_url: "https://res.cloudinary.com/dae1kvpyn/image/upload/v1535107313/brigittef.jpg", rating: 4)
+user5 = User.create!(username: "Marc", first_name: "Marc", last_name: "Danton", email: "brigitte@gmail.com", password: "mdpmdp", description: " Lorem", remote_photo_url: "https://res.cloudinary.com/drq2pi5ow/image/upload/v1541951981/47.jpg", rating: 4)
 
-user7 = User.create!(username: "empereurdusale", first_name: "Lorenzo", last_name: "Rico", email: "lorenzo@gmail.com", password: "mdpmdp", description: "Hey mamen wanna made some activities like video games, singin or have a drink with mamen rico ? ", remote_photo_url: "https://res.cloudinary.com/dae1kvpyn/image/upload/v1535107313/lolo.jpg", rating: 3)
+user7 = User.create!(username: "Paul", first_name: "Paul", last_name: "Lefebvre", email: "paul@gmail.com", password: "mdpmdp", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium maiores dolore vel in sequi explicabo, debitis, ut ducimus delectus quisquam provident excepturi dolorem expedita! Laudantium ratione saepe quod, facere soluta! ", remote_photo_url: "https://res.cloudinary.com/drq2pi5ow/image/upload/v1541951968/46.jpg", rating: 3)
 
-puts "je cree des moments"
+puts "Creating moments"
 
 moment2 = Moment.create!(category: 'Drink', activity: 'Test this new bar ! ', user: user3, description: " I'm in Amsterdam this friday and i want to test this new bar in the red light district ! Some young women interested? (not you brigitte) ", location: 'Oudezijds Voorburgwal 132, 1012 GH Amsterdam, Pays-Bas', level: 'Hell', start_time: '24.08.2018 17:00', end_time: '25.08.2018 14:00')
 
@@ -42,7 +42,7 @@ moment6 = Moment.create!(category: 'Exhibition', activity: 'Visit cougar museum'
 
 moment11 = Moment.create!(category: 'Travel', activity: 'Travel to Tokyo', user: user5, description: " I'd love to discover this country  ", location: "2 Chome-12-１０ Kabukichō, Shinjuku-ku, Tokyo-to 160-0021, Japon", level: 'Beginner', start_time: '01.01.2019 11:00', end_time: '05.01.2019 19:00')
 
-puts "je cree des bookings"
+puts "Creating bookings"
 
 booking1 = Booking.create!(user_id: user1.id,  moment_id: moment3.id,  description: "lorem ipsum",)
 booking2 = Booking.create!(user_id: user1.id,  moment_id: moment9.id,  description: "lorem ipsum",)
